@@ -12,7 +12,7 @@
 
 <h3> My Posts </h3>
 
-<% @posts.each do |post| %>
+<% current_user.posts.each do |post| %>
   <div>
     <a href="/posts/<%= post.id %>"><%= post.content %></a>
   </div>

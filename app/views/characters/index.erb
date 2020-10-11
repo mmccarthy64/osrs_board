@@ -1,0 +1,21 @@
+<h2>Welcome, <%= current_user.username %></h2>
+
+<form method="get" action="/logout">
+  <input type="submit" value="Logout">
+</form>
+<br><br><br><br>
+<form method="get" action="characters/new">
+  <input type="submit" value="Create New Character">
+</form>
+
+<br>
+
+<h3> All Characters </h3>
+
+<% @characters.each do |character| %>
+  <div>
+    <a href="/characters/<%= character.id %>"><%= character.name %></a>
+  </div>
+<% end %>
+
+<br><br><br>

@@ -1,0 +1,22 @@
+<h2> Edit Character </h2>
+
+<form method="post" action="/characters/<%=@character.id%>">
+    Name:<br>
+    <input type="text" name="name" value="<%= @character.name %>"><br>
+    Mode:<br>
+    <input type="checkbox" id="<%= @character.id %>" name="mode" value="Regular" >
+    <label for="mode">Regular</label><br>
+    <input type="checkbox" id="<%= @character.id %>" name="mode" value="Ironman" >
+    <label for="mode">Ironman</label><br>
+    <input type="checkbox" id="<%= @character.id %>" name="mode" value="Hardcore Ironman" >
+    Hardcore Ironman<br>
+
+    Level:<br>
+    <input type="text" id="level" name="level" value="<%= @character.level%>">
+  <input type="submit" value="update">
+</form>
+
+<form method="post" action="/characters/<%=@character.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Character">
+</form>
