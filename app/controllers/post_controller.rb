@@ -20,7 +20,7 @@ class PostController < ApplicationController
         if params[:content] == ""
             redirect to '/posts/new'
         else
-            @post = current_user.posts.build(content: params[:content])
+            @post = Post.new(params[:post])
             if @post.save
                 redirect to "/posts/#{@post.id}"
             else
@@ -41,7 +41,7 @@ class PostController < ApplicationController
         if @post != "" && @post.user == current_user
             erb :'posts/edit'
         else
-            redirect to '/posts'
+            redirect to '/posts/<%=@post.id%>/edit'
         end
     end
 

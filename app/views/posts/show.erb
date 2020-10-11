@@ -1,0 +1,13 @@
+<a href="/posts">Home</a>
+<br><br><br>
+
+<h2>Post:</h2>
+<%= @post.content %>
+
+<br><br><br>
+
+<form method="get" action="/posts/<%=@post.id%>/edit">
+  <input type="submit" value="Edit">
+</form>
+
+<br><br><br>

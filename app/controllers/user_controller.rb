@@ -10,13 +10,12 @@ class UserController < ApplicationController
         else
             @user = User.new(:username => params[:username], :password => params[:password])
             @user.save
-            session[:user_id] = @user.id
-            redirect to '/posts'
+            redirect to '/login'
         end
     end
     
     get '/login' do
-        if !logged_in?
+        if logged_in?
             erb :'users/login'
         else
             redirect to '/posts'
