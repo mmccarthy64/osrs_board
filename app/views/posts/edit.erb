@@ -5,3 +5,8 @@
   <input type="text" name="content" value="<%= @post.content %>">
   <input type="submit" value="update">
 </form>
+
+<form method="post" action="/posts/<%=@post.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Post">
+</form>

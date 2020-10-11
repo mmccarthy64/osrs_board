@@ -1,18 +1,24 @@
-Welcome, <%= current_user.username %>
+<h2>Welcome, <%= current_user.username %></h2>
 
 <form method="get" action="/logout">
   <input type="submit" value="Logout">
 </form>
+<br><br><br><br>
+<form method="get" action="/posts/new">
+  <input type="submit" value="Create New Post">
+</form>
 
-<br><br><br>
+<br>
 
 <h3> My Posts </h3>
 
 <% @posts.each do |post| %>
   <div>
-    <a href="/posts/:id/edit"><%= post.content %></a>
+    <a href="/posts/<%= post.id %>"><%= post.content %></a>
   </div>
 <% end %>
+
+<br><br><br>
 
 <form method="get" action="/posts">
     <input type="submit" value="View All Posts">

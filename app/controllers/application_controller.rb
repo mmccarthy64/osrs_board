@@ -10,7 +10,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :home
+    if logged_in?
+      redirect to "/posts"
+    else
+      erb :home
+    end
+  end
+
+  get '/error' do
+    erb :error
   end
 
   helpers do

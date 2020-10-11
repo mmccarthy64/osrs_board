@@ -30,6 +30,11 @@ class PostController < ApplicationController
         end
     end
 
+    get '/posts/myposts' do
+        @posts = Post.all
+        erb :'users/myposts'
+    end
+
     get '/posts/:id' do
         redirect_if_not_logged_in
         @post = Post.find_by_id(params[:id])
@@ -66,7 +71,7 @@ class PostController < ApplicationController
         if @post && @post.user == current_user
             @post.delete
         else
-            redirect to '/posts/:id'
+            redirect to '/error'
         end
     end
 end
