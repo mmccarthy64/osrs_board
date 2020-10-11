@@ -2,6 +2,7 @@ class PostController < ApplicationController
 
     get '/posts' do
         redirect_if_not_logged_in
+        @user = User.find_by(params[:id])
         @posts = Post.all
         if @posts == nil
             redirect to "/posts/new"
@@ -38,11 +39,7 @@ class PostController < ApplicationController
     get '/posts/:id/edit' do
         redirect_if_not_logged_in
         @post = Post.find_by_id(params[:id])
-        if @post != "" && @post.user == current_user
-            erb :'posts/edit'
-        else
-            redirect to '/posts/<%=@post.id%>/edit'
-        end
+        erb :'posts/edit'
     end
 
     patch '/posts/:id' do
