@@ -4,6 +4,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :name
       t.string :mode
       t.integer :level
+      t.integer :user_id
     end
   end
 end

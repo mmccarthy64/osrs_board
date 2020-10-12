@@ -12,10 +12,11 @@
 
 <h3> All Characters </h3>
 
-<% @characters.each do |character| %>
-  <div>
-    <a href="/characters/<%= character.id %>"><%= character.name %></a>
-  </div>
-<% end %>
+  <% @characters.each do |character| %>
+    <div>
+      <a href="/characters/<%= character.id %>"><%= character.name %></a>
+    </div>
+  <% end %>
+
 
 <br><br><br>
