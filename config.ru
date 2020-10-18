@@ -7,5 +7,4 @@ end
 use Rack::MethodOverride
 use CharacterController
 use UserController
-use PostController
 run ApplicationController
